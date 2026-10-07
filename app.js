@@ -1,11 +1,16 @@
 import express from 'express';
 import bookRoutes from './routes/bookRoutes.js';
 
+import studentRoute from "./routes/studentRoute.js";
+
 //create express app
 const app = express();
 
+app.use(express.json()); // middleware to parse JSON request bodies
+
 /* Routes implementation */
 app.use('/books', bookRoutes);
+app.use("/students", studentRoute); 
 
 try{
     const port = 3000; // Define port variable
